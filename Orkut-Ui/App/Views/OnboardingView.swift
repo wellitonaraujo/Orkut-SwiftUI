@@ -11,6 +11,8 @@ struct OnboardingView: View {
     @State private var isNavigationBarHidden = true
     @State private var hideBackButton = true
     
+    var completion: (() -> Void)?
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -46,6 +48,6 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView()
+        OnboardingView(completion: {})
     }
 }

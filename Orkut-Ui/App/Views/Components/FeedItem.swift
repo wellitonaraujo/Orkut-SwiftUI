@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FeedItem: View {
     @State private var isLikeTapped = false
+    @State private var showModal = false
 
     var imageProfile: String
     var title: String
@@ -39,7 +40,7 @@ struct FeedItem: View {
                    
             }.padding()
     
-            Image("community1")
+            Image("community1") // STATIC
                 .resizable()
                 .scaledToFit()
             
@@ -64,10 +65,15 @@ struct FeedItem: View {
                         }
                     }
                     
-                    Image(systemName: "message")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
+                    Button(action: {
+                        self.showModal = true
+                    }) {
+                        Image(systemName: "message")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(.black)
+                            .frame(width: 30, height: 30)
+                    }
                 }
                 
                 Spacer()
@@ -77,12 +83,17 @@ struct FeedItem: View {
                     .scaledToFit()
                     .frame(width: 30, height: 30)
                 
-            }.padding(.horizontal, 16)
+            }
+            .padding(.horizontal, 16)
             
-            Text("Infelizmente segunda-feira está cheganda e todo mundo odeia 😡")
+            Text("Infelizmente segunda-feira está cheganda e todo mundo odeia 😡") // STATIC
                 .font(.system(size: 14, weight: .regular))
                 .padding(.horizontal, 16)
+            
+            Divider()
+            .padding(.top, 15)
         }
+        
     }
 }
 
