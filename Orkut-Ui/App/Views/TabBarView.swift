@@ -13,26 +13,26 @@ struct TabBarView: View {
             HomeView()
                 .tabItem {
                     Image(systemName: "house")
-                    
                 }
+            
             Text("Buscas")
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     
                 }
             
-            Text("Add new feed")
+            Text("Buscas")
                 .tabItem {
                     Image(systemName: "plus")
                     
                 }
             
-            Text("Menssagens")
+            Text("Buscas")
                 .tabItem {
                     Image(systemName: "message.badge.rtl")
                 }
             
-            Text("Notificações")
+            Text("Buscas")
                 .tabItem {
                     Image(systemName: "bell.badge")
 

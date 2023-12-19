@@ -2,7 +2,7 @@
 //  Orkut_UiApp.swift
 //  Orkut-Ui
 //
-//  Created by Welliton da Conceicao de Araujo on 06/12/23.
+//  Created by Welliton da Conceicao de Araujo on 20/10/23.
 //
 
 import SwiftUI

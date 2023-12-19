@@ -7,9 +7,24 @@
 
 import SwiftUI
 
+enum AppView {
+    case onboarding
+    case tabBar
+}
+
 struct ContentView: View {
+    @State private var appView: AppView = .onboarding
+    
     var body: some View {
-        OnboardingView()
+        VStack {
+            if appView == .onboarding {
+                OnboardingView(completion: {
+                self.appView = .tabBar
+            })
+            } else if appView == .tabBar {
+                TabBarView()
+            }
+        }
     }
 }
 

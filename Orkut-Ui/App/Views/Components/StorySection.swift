@@ -10,6 +10,9 @@ import SwiftUI
 struct StorySection: View {
     var stories = storiesData
     
+    @State var isImageTapped = false
+    @State var selectedImage = ""
+    
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -17,6 +20,10 @@ struct StorySection: View {
                     ForEach(stories, id: \.imageName) { story in
                         VStack {
                             ImageStory(image: story.imageName)
+                                .onTapGesture {
+                                    selectedImage = story.imageName
+                                    isImageTapped = true
+                                }
                             Text(story.username)
                                 .font(.system(size: 12))
                         }
@@ -25,7 +32,24 @@ struct StorySection: View {
             }
             Divider()
             .padding(.top, 15)
-        } 
+        }
+        .fullScreenCover(isPresented: $isImageTapped) {
+            if let imageURL = Bundle.main.url(forResource: selectedImage, withExtension: "png") {
+               
+                Image(uiImage: UIImage(contentsOfFile: imageURL.path)!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        isImageTapped = false
+                    }
+                
+                } else {
+                    
+                    Text("Erro ao carregar a imagem")
+                        .foregroundColor(.red)
+            }
+        }
     }
 }
 

@@ -13,17 +13,16 @@ struct HomeView: View {
         NavigationStack {
             VStack {
                 Header()
-                StorySection()
-                
-                ScrollView {
+                ScrollView(showsIndicators: false) {
+                    StorySection()
+                    
                     ForEach(0 ..< 5) { item in
                         FeedItem(
                             imageProfile: "odeioacordarcedo",
                             title: "Eu odeio segunda feira",
                             type: "Comunidade")
                     } 
-                }  
-                Spacer()
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
